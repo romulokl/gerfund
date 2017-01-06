@@ -47,11 +47,9 @@ $(function() {
          $("#fav-title").html($(e.relatedTarget).data('title'));
     });
 });
-$(document).ready(function() {
-    $("input[name=possuiConjugue]").on( "change", function() {
-
-         var test = $(this).val();
-         $(".desc").hide();
-         $("cadastroConjugue"+test).show();
-    } );
-});
+function possuiConjugue(){
+    document.getElementById("conjugue").disabled = false;
+}
+function naoPossuiConjugue(){
+    document.getElementById("conjugue").disabled = true;
+}
