@@ -5,7 +5,8 @@
 		<div class="panel panel-default">
 			<div class="panel-heading">Cadastro de propriedades</div>
 		    <div class="panel-body container-fluid">
-		    <form method="post" role="form" action="/cadastro/propriedade">
+		    <form method="post" role="form" action="/cadastro/cadastraPropriedade">
+		    <input type="hidden" name="_token" value="{{csrf_token()}}">
 		    	<div class="form-group">
 		    		<label for="denominacao">Denominação</label>
 		    		<input type="text" name="denominacao" id="denominacao" class="form-control" placeholder="Ex.: Fazenda Paineiras" value="{{ old('denominacao') }}">
@@ -62,6 +63,11 @@
 		    	<div class="row">
 			    	<div class="form-group col-xs-8">
 			    		<label for="proprietario">Proprietário</label>
+			    		<select>
+			    		@foreach($cartorio as $c)
+			    			<option value="{{$c->cod_cartorio}}">{{$C->nome}}</option>
+			    		</select>
+			    		@endforeach
 			    		<input type="text" name="proprietario" id="proprietario" class="form-control" value="{{ old('proprietario') }}">
 			    	</div>
 			    	<div class="col-xs-4">
@@ -69,14 +75,25 @@
 			    		<input type="text" name="area" id="area" class="form-control" value="{{ old('area') }}">
 			    	</div>
 		    	</div>
+		    	<label>Propriedade é registrada?</label>
+		    	<div class="row">		    		
+		    		<div class="form-group col-xs-4">
+		    			<label>Sim:</label>
+		    			<input type="radio" name="idt_resgistrado" value="true">		    		
+		    		</div>
+		    		<div class="form-group col-xs-4">
+		    			<label>Não:</label>
+		    			<input type="radio" name="idt_resgistrado" value="false">		    		
+		    		</div>
+		    	</div>
 		    	<div class="row">
 		    		<div class="form-group col-xs-4">
-			    		<label for="itr">Número do ITR (NIRF)</label>
-			    		<input type="text" name="itr" id="itr" class="form-control" value="{{ old('itr') }}">
+			    		<label for="numero_itr">Número do ITR (NIRF)</label>
+			    		<input type="text" name="numero_itr" id="itr" class="form-control" value="{{ old('numero_itr') }}">
 			    	</div>
 			    	<div class="form-group col-xs-4">
-			    		<label for="proprietario">Número do  CCIR</label>
-			    		<input type="text" name="proprietario" id="proprietario" class="form-control" value="{{ old('proprietario') }}">
+			    		<label for="numero_ccir">Número do  CCIR</label>
+			    		<input type="text" name="numero_ccir" id="proprietario" class="form-control" value="{{ old('proprietario') }}">
 			    	</div>
 			    	<div class="form-group col-xs-4">
 			    		<label for="dt_geracao">Data de geração (CCIR)</label>
@@ -122,10 +139,8 @@
 			    		<label for="cod_cartorio">Cartório</label>
 			    		<select type="text" name="cod_cartorio" id="cod_cartorio" class="form-control" value="{{old('cod_cartorio')}}">	
 			    			<option></option>
-			    			<option>Cartório 1</option>
-			    			<option>Cartório 2</option>
-			    		</select><br>
-			    		<button type="button" class="btn" data-toggle="modal" data-target="#myModal" id="botao">Outro</button>	    			
+			    			<option>Cartório 1</option>			    			
+			    		</select><br>			    		  			
 		    		</div>
 		    		<div class="form-group col-xs-4">
 			    		<label for="matricula">Matrícula</label>
@@ -141,46 +156,7 @@
 		    		</div>
 		    	</div>
 		    	<br>
-		    	<button class="btn btn-primary">Salvar</button>		    			    
-		    	<!--Modal de cadastro de cartório -->
-					<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-					  <div class="modal-dialog modal-lg" role="document">
-					    <div class="modal-content">
-					      <div class="modal-header">
-					        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-					        <h4 class="modal-title" id="myModalLabel">Cadastro de Cartório</h4>
-					      </div>
-					      <div class="modal-body">
-					      <div class="container teste">
-					      		<div class="form-group">
-					      			<label for="nome_cartorio">Nome do Cartório</label>
-					      			<input type="" name="nome_cartorio" class="form-control">
-					      		</div>
-					      		<div class="form-group">
-					      			<label for="nome_tabeliao">Nome do tabelião</label>
-					      			<input type="" name="nome_tabeliao" class="form-control">
-					      		</div>
-					      		<div class="row"></div>
-						      		<div class="form-group col-xs-4">
-						      			<label for="telefone">Telefone</label>
-						      			<input type="" name="telefone" class="form-control">
-						      		</div>
-						      		<div class="form-group col-xs-6">
-						      			<label for="email">E-mail</label>
-						      			<input type="" name="email" class="form-control">
-						      		</div>
-						      	</div>
-						   </div>
-					      
-					      <div class="modal-footer">
-					        <button type="button" class="btn btn-default" data-dismiss="modal">Fechar</button>
-					    <!-- This is the submit button of the form -->
-					        <button type="submit" class="btn btn-primary">Salvar</button> 
-					      </div>
-					    </div>
-					  </div>
-					</div>			
-
+		    	<button class="btn btn-primary">Salvar</button>
 		    </form>		    
 		    </div>
 		</div>		
