@@ -22,7 +22,7 @@ class FundiarioController extends Controller
    		}
     }
     public function cartorio(){
-        return view('cadastro.cartorio');
+        return view('cadastro.cartorios');
     }
 
 
