@@ -21,6 +21,9 @@ class FundiarioController extends Controller
      		echo "connected successfully to database ".DB::connection()->getDatabaseName();
    		}
     }
+    public funtion cartorio(){
+        return view('cadastro.cartorio');
+    }
 
 
 }
