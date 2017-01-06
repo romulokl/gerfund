@@ -22,6 +22,7 @@ Auth::routes();
 Route::get('/home', 'HomeController@index');
 Route::get('/cadastro/empreendimento', 'FundiarioController@empreendimento');
 Route::get('/cadastro/propriedade', 'FundiarioController@propriedade');
+Route::post('/cadastro/cadastraPropriedade', 'FundiarioController@cadastraPropriedade');
 Route::get('/cadastro/proprietario', 'FundiarioController@proprietario');
 Route::get('/teste', 'FundiarioController@teste');
 Route::get('/cadastro/cartorio', 'FundiarioController@cartorio');
