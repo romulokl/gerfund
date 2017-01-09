@@ -26,3 +26,4 @@ Route::post('/cadastro/cadastraPropriedade', 'FundiarioController@cadastraPropri
 Route::get('/cadastro/proprietario', 'FundiarioController@proprietario');
 Route::get('/teste', 'FundiarioController@teste');
 Route::get('/cadastro/cartorio', 'FundiarioController@cartorio');
+Route::post('/cadatro/cadastraCartorio', 'FundiarioController@cadastraCartorio');
