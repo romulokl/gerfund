@@ -63,12 +63,9 @@
 		    	<div class="row">
 			    	<div class="form-group col-xs-8">
 			    		<label for="proprietario">Proprietário</label>
-			    		<select>
-			    		@foreach($cartorio as $c)
-			    			<option value="{{$c->cod_cartorio}}">{{$C->nome}}</option>
+			    		<select name="proprietario" id="proprietario" class="form-control" value="{{ old('proprietario') }}">			    		
+			    			<option value=""></option>
 			    		</select>
-			    		@endforeach
-			    		<input type="text" name="proprietario" id="proprietario" class="form-control" value="{{ old('proprietario') }}">
 			    	</div>
 			    	<div class="col-xs-4">
 			    		<label for="area">Área (ha)</label>
@@ -137,10 +134,7 @@
 		    	<div class="row">
 		    		<div class="form-group col-xs-4">
 			    		<label for="cod_cartorio">Cartório</label>
-			    		<select type="text" name="cod_cartorio" id="cod_cartorio" class="form-control" value="{{old('cod_cartorio')}}">	
-			    			<option></option>
-			    			<option>Cartório 1</option>			    			
-			    		</select><br>			    		  			
+			    		
 		    		</div>
 		    		<div class="form-group col-xs-4">
 			    		<label for="matricula">Matrícula</label>
