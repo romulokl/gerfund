@@ -49,7 +49,76 @@ $(function() {
 });
 function possuiConjugue(){
     document.getElementById("conjugue").disabled = false;
+    document.getElementById("rgconjugue").disabled = false;
+    document.getElementById("cpfconjugue").disabled = false;
+    document.getElementById("dt_nascconjugue").disabled = false;
+    document.getElementById("naturalidadeconjugue").disabled = false;
+    document.getElementById("contatoconjugue").disabled = false;
+    document.getElementById("cepconjugue").disabled = false;
+    document.getElementById("logradouroconjugue").disabled = false;
+    document.getElementById("numeroconjugue").disabled = false;
+    document.getElementById("quadraconjugue").disabled = false;
+    document.getElementById("bairroconjugue").disabled = false; 
+    document.getElementById("distritoconjugue").disabled = false; 
+    document.getElementById("municipioconjugue").disabled = false; 
+    document.getElementById("estadoconjugue").disabled = false; 
+    document.getElementById("paisconjugue").disabled = false;     
 }
 function naoPossuiConjugue(){
     document.getElementById("conjugue").disabled = true;
+    document.getElementById("rgconjugue").disabled = true;
+    document.getElementById("cpfconjugue").disabled = true;
+    document.getElementById("dt_nascconjugue").disabled = true;
+    document.getElementById("naturalidadeconjugue").disabled = true;
+    document.getElementById("contatoconjugue").disabled = true;
+    document.getElementById("cepconjugue").disabled = true;
+    document.getElementById("logradouroconjugue").disabled = true;
+    document.getElementById("numeroconjugue").disabled = true;
+    document.getElementById("quadraconjugue").disabled = true;
+    document.getElementById("bairroconjugue").disabled = true;
+    document.getElementById("distritoconjugue").disabled = true;
+    document.getElementById("municipioconjugue").disabled = true;
+    document.getElementById("estadoconjugue").disabled = true;
+    document.getElementById("paisconjugue").disabled = true;
 }
+ 
+// $(document).ready(function () {
+//     var table = $('#tabela').DataTable({
+//       //retrieve : true, 
+//       "language": { "url": "//cdn.datatables.net/plug-ins/1.10.12/i18n/Portuguese-Brasil.json" }
+//     });
+// });
+// $(document).ready(function() {
+//     var table = $('#tabela').DataTable();
+//     "language": { "url": "//cdn.datatables.net/plug-ins/1.10.12/i18n/Portuguese-Brasil.json" }
+ 
+//     $('#tabela tbody').on( 'click', 'tr', function () {
+//         $(this).toggleClass('selected');
+//     } );
+ 
+//     $('#button').click( function () {
+//         alert( table.rows('.selected').data().length +' row(s) selected' );
+//     } );
+// } );
+
+// $(document).ready(function () {
+//     table = $('#tabela2').DataTable({
+      
+//       //retrieve : true, 
+//       "language": { "url": "//cdn.datatables.net/plug-ins/1.10.12/i18n/Portuguese-Brasil.json" }
+//     });
+// });
+$(document).ready(function() {
+    var table = $('#tabela2').DataTable({
+      "language": { "url": "//cdn.datatables.net/plug-ins/1.10.12/i18n/Portuguese-Brasil.json" }
+    });
+    
+ 
+    $('#tabela2 tbody').on( 'click', 'tr', function () {
+        $(this).toggleClass('selected');
+    } );
+ 
+    $('#button').click( function () {
+        alert( table.rows('.selected').data().length +' row(s) selected' );
+    } );
+} );
