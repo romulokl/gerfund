@@ -1,6 +1,11 @@
 @extends('layouts.oficial')
 
 @section('conteudo')
+	@if(old('nome'))
+			<div class="alert alert-success">
+				Cartorio {{old('nome')}} salvo com sucesso!
+			</div>
+		@endif
 	<div class="col-md-10 col-md-offset-1">
 		<div class="panel panel-default">
 			<div class="panel-heading">Cadastro de Cartórios</div>
@@ -31,14 +36,11 @@
 					    	</div>  	
 					<div class="form group">
 						<label>Observações</label>
-						<textarea class="form-control" name="observacao"></textarea>
+						<textarea class="form-control" name="observacao" value="{{old('observacao')}}"></textarea>
 					</div><br>
 					<button type="submit" class=" btn btn-primary" id="savebtn">Salvar</button>
 				</form>
 			</div>		
 		</div>
 	</div>
-
-
-
 @endsection

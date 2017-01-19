@@ -1,17 +1,31 @@
 @extends('layouts.oficial')
 
 @section('conteudo')
+	@if(old('nome'))
+		<div class="alert alert-success">
+				Proprietário {{old('nome')}} salvo com sucesso!
+		</div>
+	@endif
 <div class="col-md-10 col-md-offset-1">
 		<div class="panel panel-default">
 			<div class="panel-heading">Cadastro de proprietários</div>
 		    <div class="panel-body container-fluid">
-		    	<form action="" method="post">
+		    	<form method="post" role="form" action="/cadastro/cadastraProprietario">
 		    	<input type="hidden" name="_token" value="{{csrf_token()}}">
-		    		<div class="form-group">
-		    			<label for="nome">Nome</label>
-		    			<input type="text" name="nome" class="form-control">
-		    		</div>
-		    		<div class="form-group">
+		    		<div class="row">
+			    		<div class="form-group col-xs-8">
+			    			<label for="nome">Nome</label>
+			    			<input type="text" name="nome" class="form-control">
+			    		</div>
+			    		<div class="form-group col-xs-4">
+			    			<label for="genero">Gênero</label>
+			    			<select type="text" name="genero" class="form-control">
+			    				<option value="masculino">Masculino</option>
+			    				<option value="feminino">Feminino</option>
+			    			</select>
+			    		</div>
+			    	</div>
+		    		<!--<div class="form-group">
 		    			<label for="endereco">Endereço</label>
 		    			<table class="table table-bordered table-striped" id="endereco">
 		    				<tr>		    					
@@ -44,7 +58,7 @@
 		    				</tr>
 		    			</table>
 		    			<button type="button" class="btn" data-toggle="modal" data-target="#contato" id="botao">Adicionar contato</button>
-		    		</div>
+		    		</div>-->
 		    		
 		    		
 		    		<div class="row">
@@ -71,12 +85,12 @@
 			    		<div class="form-group col-xs-4">
 			    			<!-- <button type="button" class="btn" data-toggle="modal" data-target="#conjugue" id="botao">Adicionar conjugue</button> -->	
 			    			<label>Não possui conjugue</label>
-			    			<input type="radio" name="possuiConjugue" value="nao" onclick="naoPossuiConjugue();">
+			    			<input type="radio" name="possuiconjugue" value="false" onclick="naoPossuiConjugue();" >
 			    		</div>
 			    		<div class="form-group col-xs-4">
 			    			<!-- <button type="button" class="btn" data-toggle="modal" data-target="#conjugue" id="botao">Adicionar conjugue</button> -->	
 			    			<label>Possui conjugue</label>
-			    			<input type="radio" name="possuiConjugue" value="sim" onclick="possuiConjugue();">
+			    			<input type="radio" name="possuiconjugue" value="true" checked="true" onclick="possuiConjugue();">
 			    		</div>
 		    		</div>
 		    		<!--Codigo de cadastro do conjugue -->
@@ -87,97 +101,88 @@
 					      
 					      
 					      	<div class="form-group">
-				    			<label for="nome">Nome</label>
-				    			<input type="text" name="nome" class="form-control" id="conjugue" value="{{ old('nome') }}">
+				    			<label for="nomeconjugue">Nome</label>
+				    			<input type="text" name="nomeconjugue" class="form-control" id="conjugue" value="{{ old('nome') }}">
 				    		</div>
+				    		<div class="row">
+				    			<div class="form-group col-xs-6">
+				    				<label for="rgconjugue">RG</label>
+				    				<input type="text" name="rgconjugue" class="form-control" id="rgconjugue" value="{{ old('rgconjugue') }}">
+				    			</div>
+				    			<div class="form-group col-xs-6">
+				    				<label for="cpfconjugue">CPF</label>
+				    				<input type="text" name="cpfconjugue" class="form-control" id="cpfconjugue" value="{{ old('cpfconjugue') }}">
+				    			</div>
+			    			</div>
+			    			<div class="row">
+				    			<div class="form-group col-xs-6">
+				    				<label for="dt_nascconjugue">Data de nascimento</label>
+				    				<input type="date" name="dt_nascconjugue" class="form-control" id="dt_nascconjugue" value="{{ old('dt_nascconjugue') }}">
+				    			</div>
+				    			<div class="form-group col-xs-6">
+				    				<label for="naturalidadeconjugue">Naturalidade</label>
+				    				<input type="text" name="naturalidadeconjugue" class="form-control" id="naturalidadeconjugue" value="{{ old('naturalidadeconjugue') }}">
+				    			</div>
+		    				</div>
+		    				<div class="form-group">
+		    					<label for="contatoconjugue">Contato</label>
+		    					<input type="text" name="contatoconjugue" class="form-control" id="contatoconjugue" value="{{ old('cpfconjugue') }}">
+		    					<small>Insira qualquer tipo de contato do cônjugue, telefone, e-mail, etc.</small>
+		    				</div>
 				    		 <div class="row">
 				    			<div class="form-group col-xs-4" >
-						    		<label for="cep">CEP</label>
-						    		<input type="text" name="cep" class="form-control" onchange="" maxlength="10" placeholder="Ex.: 00000-000" value="{{ old('cep') }}" id="conjugue">
+						    		<label for="cepconjugue">CEP</label>
+						    		<input type="text" name="cepconjugue" class="form-control" onchange="" maxlength="10" placeholder="Ex.: 00000-000" value="{{ old('cepconjugue') }}" id="cepconjugue">
 						    	</div>
 						    							    		
 						    	<div class="form-group col-xs-4">
-						    		<label for="logradouro">Logradouro</label>
-						    		<input type="text" name="logradouro" id="conjugue" class="form-control" value="{{ old('logradouro') }}">
+						    		<label for="logradouroconjugue">Logradouro</label>
+						    		<input type="text" name="logradouroconjugue" id="logradouroconjugue" class="form-control" value="{{ old('logradouroconjugue') }}">
 						    		</div>
 						    		
 						    	<div class="form-group col-xs-4">
-						    		<label for="numero">Numero</label>
-						    		<input type="number" name="numero" id="conjugue" class="form-control" value="{{ old('numero') }}">
+						    		<label for="numeroconjugue">Numero</label>
+						    		<input type="number" name="numeroconjugue" id="numeroconjugue" class="form-control" value="{{ old('numeroconjugue') }}">
 						    	</div>
 						    </div>					    			    	
 					    	<div class="row">
 						    	<div class="form-group col-xs-4">
-						    		<label for="quadra">Quadra</label>
-						    		<input type="text" name="quadra" id="conjugue" class="form-control" maxlength="10" value="{{ old('quadra') }}">
+						    		<label for="quadraconjugue">Quadra</label>
+						    		<input type="text" name="quadraconjugue" id="quadraconjugue" class="form-control" maxlength="10" value="{{ old('quadraconjugue') }}">
 						    	</div>
 						    		
 						    	<div class="form-group col-xs-4">
-						    		<label for="bairro">Bairro</label>
-						    		<input type="text" name="bairro" id="conjugue" class="form-control" value="{{ old('bairro') }}">
+						    		<label for="bairroconjugue">Bairro</label>
+						    		<input type="text" name="bairroconjugue" id="bairroconjugue" class="form-control" value="{{ old('bairroconjugue') }}">
 						    		</div>
 						    		
 						    	<div class="form-group col-xs-4">
-						    		<label for="distrito">Distrito</label>
-						    		<input type="text" name="distrito" id="conjugue" class="form-control" value="{{ old('distrito') }}">
+						    		<label for="distritoconjugue">Distrito</label>
+						    		<input type="text" name="distritoconjugue" id="distritoconjugue" class="form-control" value="{{ old('distritoconjugue') }}">
 						    	</div>
 						    	</div>			    	
 						    	<div class="row">
 						    	<div class="form-group col-xs-4">
-						    		<label for="municipio">Município</label>
-						    		<input type="text" name="municipio" id="conjugue" class="form-control" maxlength="10" value="{{ old('municipio') }}">
+						    		<label for="municipioconjugue">Município</label>
+						    		<input type="text" name="municipioconjugue" id="municipioconjugue" class="form-control" maxlength="10" value="{{ old('municipioconjugue') }}">
 						    	</div>
 						    		
 						    	<div class="form-group col-xs-4">
-						    		<label for="estado">Estado</label>
-						    		<input type="text" name="estado" id="conjugue" class="form-control" value="{{ old('estado') }}">
+						    		<label for="estadoconjugue">Estado</label>
+						    		<input type="text" name="estadoconjugue" id="estadoconjugue" class="form-control" value="{{ old('estadoconjugue') }}">
 						    		</div>
 						    		
 						    	<div class="form-group col-xs-4">
-						    		<label for="pais">País</label>
-						    		<input type="text" name="pais" id="conjugue" class="form-control" value="{{ old('pais') }}">
+						    		<label for="paisconjugue">País</label>
+						    		<input type="text" name="paisconjugue" id="paisconjugue" class="form-control" value="{{ old('paisconjugue') }}">
 						    	</div>
 				    			
 				    		</div>
-				    		<div class="row">
-			    			<div class="form-group col-xs-6">
-			    				<label for="rg_conjugue">RG</label>
-			    				<input type="text" name="rg_conjugue" class="form-control" id="conjugue">
-			    			</div>
-			    			<div class="form-group col-xs-6">
-			    				<label for="cpf_conjugue">CPF</label>
-			    				<input type="text" name="cpf_conjugue" class="form-control" id="conjugue">
-			    			</div>
-			    			</div>
-			    			<div class="row">
-				    			<div class="form-group col-xs-6">
-				    				<label for="dt_nasc">Data de nascimento</label>
-				    				<input type="date" name="dt_nasc" class="form-control" id="conjugue">
-				    			</div>
-				    			<div class="form-group col-xs-6">
-				    				<label for="naturalidade">Naturalidade</label>
-				    				<input type="text" name="naturalidade" class="form-control" id="conjugue">
-				    			</div>
+				    		<div class="form-group">
+				    			<label for="observacao">Observações</label>
+				    			<textarea name="observacao" id="observacao" class="form-control" value="{{old('observacao')}}"></textarea>
+				    		</div>
 				    		
-			    			<!-- <div class="form-inline">
-				    			<div class="form-group">					    					    			
-					    			<button type="button" class="btn botao">Adicionar endereço</button>
-					    			<button type="button" class="btn botao">O mesmo do proprietário</button>
-				    			</div>				    			
-			    			</div>
-			    			
-				    		</form>
-					    
-					    
-					   </div>
-					      
-					      <div class="modal-footer">
-					        <button type="button" class="btn btn-default" data-dismiss="modal">Fechar</button>
-					    <!-- This is the submit button of the form 
-					        <button type="submit" class="btn btn-primary">Salvar</button> 
-					      </div> -->
-					      
-		    		</div>
 		    		<button class="btn btn-primary">Salvar</button>
 		    	</form>
 		    </div>

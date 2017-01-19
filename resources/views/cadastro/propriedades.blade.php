@@ -1,16 +1,31 @@
 @extends('layouts.oficial')
 
 @section('conteudo')
+	@if(old('denominacao'))
+		<div class="alert alert-success">
+				Propriedade {{old('denominacao')}} salva com sucesso!
+		</div>
+	@endif
 <div class="col-md-10 col-md-offset-1">
 		<div class="panel panel-default">
 			<div class="panel-heading">Cadastro de propriedades</div>
 		    <div class="panel-body container-fluid">
 		    <form method="post" role="form" action="/cadastro/cadastraPropriedade">
 		    <input type="hidden" name="_token" value="{{csrf_token()}}">
-		    	<div class="form-group">
-		    		<label for="denominacao">Denominação</label>
-		    		<input type="text" name="denominacao" id="denominacao" class="form-control" placeholder="Ex.: Fazenda Paineiras" value="{{ old('denominacao') }}">
-		    		<small>Nome da propriedade</small>
+		    	<div class="row">
+			    	<div class="form-group col-xs-8">
+			    		<label for="denominacao">Denominação</label>
+			    		<input type="text" name="denominacao" id="denominacao" class="form-control" placeholder="Ex.: Fazenda Paineiras" value="{{ old('denominacao') }}">
+			    		<small>Nome da propriedade</small>
+			    	</div>
+			    	<div class="form-group col-xs-4">
+			    		<label for="cod_empreendimento">Empreendimento</label>			    		
+			    			<select class="form-control" name="cod_empreendimento" id="cod_empreendimento" value="{{old('cod_empreendimento')}}">
+			    			@foreach($empreendimento as $e)
+			    				<option value="{{$e->cod_empreendimento}}">{{$e->denominacao}}</option>
+			    			@endforeach
+			    			</select>
+			    	</div>
 		    	</div>
 		    	<div class="row">
 			    	<div class="form-group col-xs-4">
@@ -63,8 +78,10 @@
 		    	<div class="row">
 			    	<div class="form-group col-xs-8">
 			    		<label for="proprietario">Proprietário</label>
-			    		<select name="proprietario" id="proprietario" class="form-control" value="{{ old('proprietario') }}">			    		
-			    			<option value=""></option>
+			    		<select name="proprietario" id="proprietario" class="form-control" value="{{ old('proprietario') }}">	
+			    		@foreach($proprietario as $p)		    		
+			    			<option value="{{$p->cod_proprietario}}">{{$p->nome}}</option>
+			    		@endforeach
 			    		</select>
 			    	</div>
 			    	<div class="col-xs-4">
@@ -76,11 +93,11 @@
 		    	<div class="row">		    		
 		    		<div class="form-group col-xs-4">
 		    			<label>Sim:</label>
-		    			<input type="radio" name="idt_resgistrado" value="true">		    		
+		    			<input type="radio" name="idt_registrado" value="true">		    		
 		    		</div>
 		    		<div class="form-group col-xs-4">
 		    			<label>Não:</label>
-		    			<input type="radio" name="idt_resgistrado" value="false">		    		
+		    			<input type="radio" name="idt_registrado" value="false">		    		
 		    		</div>
 		    	</div>
 		    	<div class="row">
@@ -107,8 +124,8 @@
 			    		<input type="text" name="modulos_fiscais" id="modulos_fiscais" class="form-control" value="{{ old('modulos_fiscais') }}">
 			    	</div>
 			    	<div class="form-group col-xs-4">
-			    		<label for="num_autencidade">Número de Autenticidade (CCIR)</label>
-			    		<input type="text" name="num_autencidade" id="num_autencidade" class="form-control" value="{{ old('num_autencidade') }}">
+			    		<label for="num_autenticidade">Número de Autenticidade (CCIR)</label>
+			    		<input type="text" name="num_autenticidade" id="num_autenticidade" class="form-control" value="{{ old('num_autenticidade') }}">
 			    	</div>
 		    	</div>
 		    	<div class="row">
@@ -127,14 +144,18 @@
 			    		<input type="text" name="area_rl" id="area_rl" class="form-control" value="{{old('area_rl')}}">		    			
 		    		</div>
 		    		<div class="form-group col-xs-6">
-			    		<label for="averbacao">Número da averbação da Reserva Legal</label>
-			    		<input type="text" name="averbacao" id="averbacao" class="form-control" value="{{old('averbacao')}}">		    			
+			    		<label for="averbacao_rl">Número da averbação da Reserva Legal</label>
+			    		<input type="text" name="averbacao_rl" id="averbacao_rl" class="form-control" value="{{old('averbacao_rl')}}">		    			
 		    		</div>
 		    	</div>
 		    	<div class="row">
 		    		<div class="form-group col-xs-4">
 			    		<label for="cod_cartorio">Cartório</label>
-			    		
+			    		<select class="form-control" name="cod_cartorio">
+			    		@foreach($cartorio as $c)
+			    			<option value="{{$c->cod_cartorio}}">{{$c->nome}}</option>			    		
+			    		@endforeach
+			    		</select>
 		    		</div>
 		    		<div class="form-group col-xs-4">
 			    		<label for="matricula">Matrícula</label>
