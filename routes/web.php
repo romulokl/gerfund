@@ -36,3 +36,11 @@ Route::get('/cadastro/cartorio', 'FundiarioController@cartorio');
 Route::post('/cadastro/cadastraCartorio', 'FundiarioController@cadastraCartorio');
 //relacionar proprietário com propriedade
 Route::get('/cadastro/propriedadeProprietario', 'FundiarioController@propriedadeProprietario');
+//consulta propriedade
+Route::get('/consulta/consultaPropriedade', 'ConsultaController@consultaPropriedade');
+Route::get('/consulta/consultandoPropriedade', 'ConsultaController@consultandoPropriedade');
+// consulta de empreendimentos
+Route::get('/consulta/consultaProprietario', 'ConsultaController@consultaProprietario');
+Route::get('/consulta/consultandoProprietario', 'ConsultaController@consultandoProprietario');
+//exibindo o detalhes dos produtos
+//Route::get('/consulta/detalhes/{cod_propriedade?}', 'ConsultaController@detalhes')->where('cod_propriedade', '[0-9]+');
