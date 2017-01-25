@@ -1,12 +1,12 @@
 @extends('layouts.oficial')
-{!! csrf_field() !!}
+ {!! csrf_field() !!}
 @section('conteudo')	
 	<div class="col-md-10 col-md-offset-1">
 		<div class="panel panel-default">
-			<div class="panel-heading">Consulta de propriedades</div>
+			<div class="panel-heading">Consulta de empreendimentos</div>
 		    <div class="panel-body container-fluid">
-		    				
-					<div class="form-group">
+				
+				<div class="form-group">
 						<label>Critério da pesquisa</label>
 						
 						<input type="text" name="criterio" id="criterio" class="form-control">
@@ -20,8 +20,9 @@
 					<thead>
 						<tr>
 							<th>ID</th>
-							<th>Nome da propriedade</th>
-							<th>Estado</th>
+							<th>Nome do empreendimento</th>
+							<th>Tipo de intervenção</th>
+							<th>Estado</th>,
 							<th>Ação</th>
 						</tr>
 					</thead>
@@ -39,8 +40,8 @@
 					        <h4 class="modal-title" id="myModalLabel">Detalhes da propriedade</h4>
 					      </div>
 					      <div class="modal-body">
-						     <div class="container teste">
-						      	<h4>Aqui irão todos os detalhes da propriedade</h4>
+						     <div class="container teste">						      	
+						      	<h4>Aqui irão todos os detalhes do empreendimento</h4>
 						    </div>
 					    </div>
 					      
@@ -58,7 +59,7 @@
 			$valor = $(this).val();
 			$.ajax({
 				type :'get',
-				url : '{{URL::to('/consulta/consultandoPropriedade')}}',
+				url : '{{URL::to('/consulta/consultandoEmpreendimento')}}',
 				data : {'criterio':$valor},
 				success :  function(data){
 					//console.log(data);
