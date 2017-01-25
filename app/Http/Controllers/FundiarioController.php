@@ -13,6 +13,10 @@ use Request;
 
 class FundiarioController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('Autorizador');
+    }
     public function empreendimento(){
     	return view('cadastro.empreendimento');
     }
