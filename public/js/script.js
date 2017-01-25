@@ -1,4 +1,4 @@
-$(document).ready(function () {
+/*$(document).ready(function () {
     //Disable Save Button On Page Load
     $("#savebtn").attr('disabled', 'disabled');
 
@@ -22,7 +22,7 @@ $(document).ready(function () {
     });
 
     $("#endereco_conjugue").hide();
-});
+});*/
 /*$(document).ready(function() {
      $('input[type="submit"]').prop('disabled', true);
      $('input[type="text"]').keyup(function() {
@@ -32,7 +32,7 @@ $(document).ready(function () {
      });
  });*/
 
-jQuery.noConflict();
+/*jQuery.noConflict();
 jQuery(function($){
    $("#data").mask("99/99/9999");
    $("#telefone").mask("(099) 9999-9999");
@@ -40,7 +40,7 @@ jQuery(function($){
    $("#cep").mask("99999-999"); 
    $("#cnpj").mask("99.999.999/9999-99");
    $("#placa").mask("aaa - 9999"); 
-});
+});*/
 $(function() {
     $('#favoritesModal').on("show.bs.modal", function (e) {
          $("#favoritesModalLabel").html($(e.relatedTarget).data('title'));
