@@ -3,7 +3,7 @@ nav .navbar .navbar-defaut{
 	height: 50px;	
 }
 nav .navbar .navbar-defaut a{
-	
+
 }
 a{
 	text-decoration: none;
@@ -20,22 +20,27 @@ footer.footer {
   margin-top: 55px;
   color: white;
   border-radius: 5px;
-}
-}
-	
+  /*Essa informação coloca o footer fixo no fim da página
+  position:absolute;
+  bottom:0;
+  width:100%;*/
+}	
 footer .footer a{
-	padding: 20px;
+	/*padding: 20px;*/
 }
 .corpo{
 	background-color: rgba(70,130,180, 0.1);
 	
 	
+	/*width:100% auto;
+	margin: 0 auto;
+    height: auto;*/	
 }
-/*.container{
-	width: 80%;
-}*/
+.container{
+	
+}
 .teste{
-	width: 90%;
+	
 	
 }
 textarea{
@@ -58,5 +63,26 @@ tr th{
 }
 .barra{
 	background-color: #00628d;
-
 }
+.tabela1{
+	/*display: inline-table;
+	float: left;
+	width:33%;
+	vertical-align: top;*/
+}
+.tabela2{
+	/*display: inline-table;
+	float: right;
+	width:33%;
+	vertical-align: top;
+	overflow: auto;
+	padding-left: : 10px;*/
+}
+.table{
+	/*display: inline-table;
+	float: left;
+	width:33%;*/   
+}
+#selectable .ui-selecting { background: #FECA40; }
+#selectable .ui-selected { background: #F39814; }
+#selectable {margin: 0; padding: 0;}
