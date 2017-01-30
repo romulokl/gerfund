@@ -30,7 +30,7 @@
 		    	<div class="row">
 			    	<div class="form-group col-xs-4">
 			    		<label for="cep">CEP</label>
-			    		<input type="text" name="cep" id="cep" class="form-control" onchange="" maxlength="10" placeholder="Ex.: 00000-000" value="{{ old('cep') }}">
+			    		<input type="text" name="cep" id="cep" class="form-control" onchange="" placeholder="Ex.: 00000-000" value="{{ old('cep') }}">
 			    	</div>
 			    		
 			    	<div class="form-group col-xs-4">
@@ -46,7 +46,7 @@
 		    	<div class="row">
 			    	<div class="form-group col-xs-4">
 			    		<label for="quadra">Quadra</label>
-			    		<input type="text" name="quadra" id="quadra" class="form-control" maxlength="10" value="{{ old('quadra') }}">
+			    		<input type="text" name="quadra" id="quadra" class="form-control" value="{{ old('quadra') }}">
 			    	</div>
 			    		
 			    	<div class="form-group col-xs-4">
@@ -62,7 +62,7 @@
 			    	<div class="row">
 			    	<div class="form-group col-xs-4">
 			    		<label for="municipio">Município</label>
-			    		<input type="text" name="municipio" id="municipio" class="form-control" maxlength="10" value="{{ old('municipio') }}">
+			    		<input type="text" name="municipio" id="municipio" class="form-control" value="{{ old('municipio') }}">
 			    	</div>
 			    		
 			    	<div class="form-group col-xs-4">
